@@ -1,0 +1,39 @@
+---
+import BentoItem from './BentoItem.astro'
+---
+<section
+  class={`
+    w-full max-w-[1400px]
+    grid lg:grid-cols-10 auto-rows-[30rem] gap-4
+    mx-auto p-6 md:p-12 lg:p-20
+  `}
+>
+    <BentoItem class="col-span-10 lg:col-span-4" title="SEGURIDAD">
+        <div
+      slot="image"
+      class="background transition-scale absolute bottom-0 left-0 top-0
+        -z-10 h-full w-full bg-blue-950
+        bg-cover bg-center bg-no-repeat opacity-90 bg-blend-luminosity duration-1000 ease-in-out group-hover:scale-110"
+      data-src="/.webp"
+    >
+    </div>
+    <p slot="content" class="max-w-xl">
+        Descubra la tranquilidad de navegar en línea con nuestra red inteligente, ahora equipada con <strong>seguridad integrada</strong> sin costo adicional. Proteja su experiencia en línea contra <strong>virus</strong>,<strong>malware</strong> y más, ¡sin preocupaciones! Explore la web con <strong>confianza</strong> y <strong>seguridad</strong> mientras aprovecha al máximo nuestros servicios.
+    </p>
+    </BentoItem>
+    <BentoItem class="col-span-10 lg:col-span-6" title="VELOCIDAD">
+    <p slot="content" class="max-w-xl">
+        Nuestros planes de internet van más allá de la simple conexión. Ofrecemos <strong>velocidades ultra rápidas</strong> y una <strong>conectividad confiable</strong> para brindar la mejor experiencia en línea. Nuestro dedicado equipo de ingenieros trabaja constantemente para garantizar la <strong>excelencia</strong> en cada conexión. ¿Listo para experimentar la diferencia? ¡Contáctanos ahora para obtener más información y aprovechar nuestras <strong>ofertas exclusivas</strong>!
+    </p>
+    </BentoItem>
+    <BentoItem class="col-span-10 lg:col-span-6" title="COBERTURA">
+    <p slot="content" class="max-w-xl">
+        
+    </p>
+    </BentoItem>
+    <BentoItem class="col-span-10 lg:col-span-4" title="">
+    <p slot="content" class="max-w-xl">
+
+    </p>
+    </BentoItem>
+</section>
