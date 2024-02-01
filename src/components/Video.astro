@@ -9,7 +9,41 @@
         </p>
       </section>
     </div>
-    <video class="w-full h-screen object-top animate-ease-in-out animate-fade animate-duration-1000" src="/video.webm" autoplay loop muted style="clip-path: polygon(0 0, 100% 0, 100% 73%, 50% 100%, 0 73%);"></video>
+    <video class="cp-v w-screen h-screen object-cover object-top animate-ease-in-out animate-fade animate-duration-1000" src="/video.webm" autoplay loop muted style="clip-path: polygon(0 0, 100% 0, 100% 73%, 50% 100%, 0 73%);"></video>
     <video class="absolute bottom-0 left-0 right-0 mx-auto blur-3xl z-[-40]" src="/video.webm" autoplay loop muted></video>
-  </div>
   
+  </div>
+
+  <script>
+    document.addEventListener("astro:page-load", () => {
+      const firstVideo = document.querySelector("#main-video") as HTMLMediaElement
+  
+      if (firstVideo) {
+        const videos = document.querySelectorAll(
+          ".video"
+        ) as NodeListOf<HTMLMediaElement>
+  
+        if (firstVideo.readyState >= 3) {
+          videos.forEach((videoEl) => {
+            videoEl.classList.remove("hidden")
+            videoEl.classList.add("animate-fade")
+          })
+  
+          return
+        }
+  
+        firstVideo.addEventListener("loadeddata", () => {
+          videos.forEach((videoEl) => {
+            videoEl.classList.remove("hidden")
+            videoEl.classList.add("animate-fade")
+          })
+        })
+      }
+    })
+  </script>
+  
+  <style>
+    .subtitle {
+      text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    }
+  </style>

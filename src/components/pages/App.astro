@@ -1,0 +1,22 @@
+---
+import Layout from "../../layouts/Layout.astro"
+import Video from "../Video.astro"
+import Intro from "../Intro.astro"
+import Bento from "../Bento.astro"
+import PreFooter from "../PreFooter.astro"
+
+const {currentLocale} = Astro
+---
+
+<Layout
+title="Reitcom - Experimenta la velocidad."
+description="Reitcom ha desarrollado una red de fibra avanzada, ofreciendo velocidades cada vez más rápidas. Con velocidades de hasta 1 Giga, nos comprometemos a conectarlo instantáneamente con todo lo que le apasiona."
+>
+
+    <Video/>
+    <main>
+        <Intro/>
+        <Bento/>
+        <PreFooter/>
+    </main>
+</Layout>

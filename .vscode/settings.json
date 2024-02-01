@@ -1,0 +1,6 @@
+{
+    "editor.linkedEditing": true,
+    "breadcrumbs.enabled": false,
+    "workbench.tree.enableStickyScroll": true,
+    "editor.cursorSmoothCaretAnimation": "on"
+}
