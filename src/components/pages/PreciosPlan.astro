@@ -6,12 +6,14 @@ import Pricing from "../BentoPricing.astro"
 ---
 
 <Layout title="¡Conéctate con los Mejores Precios de Internet! Descubre los Planes Reitcom" description="Nuestros planes de internet están diseñados para los que buscan lo mejor. Con velocidades ultrarrápidas y un servicio personalizado, te ofrecemos una experiencia única en conectividad. Eleva tu experiencia en línea a un nivel superior con Reitcom: Experimenta la velocidad">
-  <HeroContainer img="/bg-preschool.webp"> 
+  <HeroContainer img="/bg-preschool.webp" className="h-[40vh] lg:h-[50vh]">
     <h1 class="lg:text-6xl text-4xl text-center uppercase mb-20 font-gothic-a1 tracking-widest">
       Titulo Legal
     </h1>
   </HeroContainer>
+
   <Numeros/>
   <Pricing class="mb-16"/> <!-- Agregamos un margen inferior -->
   <div class="mb-16"></div> <!-- Espacio de separación con el footer -->
 </Layout>
+
