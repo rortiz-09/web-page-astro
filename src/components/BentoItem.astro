@@ -5,24 +5,24 @@ interface Props {
   subtitle?: string
 }
 
-const { title, subtitle } = Astro.props
+const { title, subtitle, class: className } = Astro.props
 ---
 
 <article
   class={`
-  ${Astro.props.class}
+  ${className ?? ''}
   col-span-5
   relative rounded-xl
   backdrop-blur-md
-  border border-black/10
   shadow-inner shadow-white/10
   overflow-hidden
   group
+  bg-red-orange-500
 `}
 >
   <div
     class="absolute bottom-0 top-0 z-10 h-full w-full
-    bg-gradient-to-b from-transparent from-40% via-[#717073]/40 to-[#2E2D2C]/80"
+    bg-gradient-to-b from-transparent from-40% via-red-orange-300/40 to-red-orange-800/80"
   >
   </div>
 
@@ -31,18 +31,21 @@ const { title, subtitle } = Astro.props
   <div
     class="relative z-20 flex h-full select-none flex-col justify-end gap-1 p-4 text-lg md:p-6"
   >
-    <h2 class="mb-4 text-balance text-3xl font-semibold uppercase text-white">
+    <h2 class="mb-4 text-balance text-3xl font-semibold uppercase text-red-orange-50">
       {title}
     </h2>
 
-    {
-      subtitle && (
-        <h3 class="-mt-4 mb-4 text-3xl font-semibold text-sky-200/80">
-          {subtitle}
-        </h3>
-      )
-    }
+    {subtitle && (
+      <h3 class="-mt-4 mb-4 text-3xl font-semibold text-red-orange-200/80">
+        {subtitle}
+      </h3>
+    )}
 
-    <slot name="content" />
+    <div class="h-full flex">
+      <div class="leading-none p-6 rounded-2xl mt-auto mb-2 text-4xl font-semibold drop-shadow-sm tracking-tight text-red-orange-50">
+        Create<br>
+        <span class="text-red-orange-200">color scales<br></span> in seconds.
+      </div>
+    </div>
   </div>
 </article>

@@ -5,34 +5,31 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import "@fontsource/gothic-a1"
 
-
 interface Props {
-	description: string;
-	title: string;
+  description: string;
+  title: string;
+  showHeader?: boolean;
+  showFooter?: boolean;
 }
 
-const {description, title } = Astro.props;
+const { description, title, showHeader = true, showFooter = true } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="es">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content={description} />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<title>{title}</title>
-		<link
-			rel="preload"
-			href="/logo.astro"
-		/>
-		<slot name="preload" />
-		
-	</head>
-	<body>
-		<Header />
-		<slot />
-		<Footer />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+    <link rel="preload" href="/logo.astro" />
+    <slot name="preload" />
+  </head>
+  <body>
+    {showHeader && <Header />}
+    <slot />
+    {showFooter && <Footer />}
 
 		<style is:global>
 			:root {
