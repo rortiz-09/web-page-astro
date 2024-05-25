@@ -5,15 +5,22 @@ import Numeros from "../Numeros.astro"
 import Pricing from "../BentoPricing.astro"
 ---
 
+
 <Layout title="¡Conéctate con los Mejores Precios de Internet! Descubre los Planes Reitcom" description="Nuestros planes de internet están diseñados para los que buscan lo mejor. Con velocidades ultrarrápidas y un servicio personalizado, te ofrecemos una experiencia única en conectividad. Eleva tu experiencia en línea a un nivel superior con Reitcom: Experimenta la velocidad">
   <HeroContainer img="/bg-preschool.webp" className="h-[40vh] lg:h-[30vh]">
     <h1 class="lg:text-6xl text-4xl text-center uppercase mb-20 font-gothic-a1 tracking-widest">
-      Titulo Legal
+      <em>Experimenta la velocidad...</em>
     </h1>
   </HeroContainer>
+
+
   <div class="mb-16"></div> <!-- Espacio de separación con el HeroContainer -->
+  <div class="mb-16">
+    <h2 class="mb-4 leading-6 text-center tracking-wider text-4xl uppercase"><p>Siempre tenemos</p></h2>
+    <h3 class="mb-4 leading-6 text-center tracking-wider text-2xl uppercase">un Plan <strong>plan</strong> Perfecto para <strong>Ti</strong>.</h3>
+  </div>
   <Pricing class="mb-16"/> <!-- Agregamos un margen inferior -->
   <Numeros/>
-  <div class="mb-16"></div> <!-- Espacio de separación con el footer -->
+  <div class="mb-16"> </div> <!-- Espacio de separación con el footer -->
 </Layout>
 
