@@ -1,59 +1,80 @@
-<div align="center">
-<img src="public/favicon.svg" height="50px" width="auto" /> 
-<h3>
- The REITCOM page.
-</h3>
-<p>Created for Deploid reitcom static page.</p>
-</div>
+# Reitcom ISP - Plataforma Web
 
-```sh
-bun create astro@latest 
+Plataforma web moderna para Reitcom ISP, construida con Astro, Preact y TailwindCSS.
+
+## 🚀 Tecnologías
+
+- **Framework:** [Astro](https://astro.build)
+- **UI Library:** [Preact](https://preactjs.com)
+- **Styling:** [TailwindCSS](https://tailwindcss.com)
+- **Icons:** Heroicons / SVG
+- **Fonts:** Montserrat & Inter (via Fontsource)
+
+## 📂 Estructura del Proyecto
+
+```
+src/
+├── components/         # Componentes UI reutilizables
+│   ├── client/         # Componentes específicos del cliente
+│   ├── layouts/        # Layouts generales (DashboardLayout)
+│   └── modules/        # Módulos de Dashboard por rol
+├── data/               # Datos estáticos y Mock DB (users.json)
+├── layouts/            # Layouts de página (Astro)
+├── pages/              # Rutas de la aplicación (File-based routing)
+│   ├── api/            # Endpoints de API (Auth)
+│   ├── colaboradores/  # Portales internos (Admin, Tech, etc.)
+│   └── error/          # Páginas de error (404, 403)
+└── utils/              # Utilidades (cookies, formatters)
 ```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+## 🔐 Usuarios de Prueba (Seeding)
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+El sistema incluye un script de seeding para generar usuarios por defecto.
+Contraseña por defecto para todos: `Reitcom2025!`
 
-## 🚀 Project Structure
+| Rol | Usuario / Email | Código / ID | Portal |
+| :--- | :--- | :--- | :--- |
+| **Admin** | `admin@reitcom.net` | `RC25A001` | `/colaboradores/administradores` |
+| **Financiero** | `finanzas@reitcom.net` | `RC25F001` | `/colaboradores/financiero` |
+| **Técnico** | `tecnico@reitcom.net` | `RC25T001` | `/colaboradores/tecnicos` |
+| **RRHH** | `rrhh@reitcom.net` | `RC25H001` | `/colaboradores/recursoshumanos` |
+| **Fiscal** | `legal@reitcom.net` | `RC25L001` | `/colaboradores/fiscalizadores` |
+| **Cliente** | `cliente@gmail.com` | `0999999999` | `/mi-cuenta` |
 
-Inside of your Astro project, you'll see the following folders and files:
+## 🛠️ Comandos
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── components/
-│   │   └── Card.astro
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
+### Instalación
+
+```bash
+npm install
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+### Desarrollo
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+```bash
+npm run dev
+```
 
-Any static assets, like images, can be placed in the `public/` directory.
+### Seeding (Resetear Usuarios)
 
-## 🧞 Commands
+```bash
+npx tsx scripts/seed-initial-users.ts
+```
 
-All commands are run from the root of the project, from a terminal:
+### Producción (Build)
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `bun install`             | Installs dependencies                            |
-| `bun run dev`             | Starts local dev server at `localhost:4321`      |
-| `bun run build`           | Build your production site to `./dist/`          |
-| `bun run preview`         | Preview your build locally, before deploying     |
-| `bun run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `bun run astro -- --help` | Get help using the Astro CLI                     |
+```bash
+npm run build
+```
 
-## 👀 Want to learn more?
+## 🐳 Docker Deployment
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
-# web-page-astro
+El proyecto incluye un `Dockerfile` optimizado (Multistage Build).
+
+```bash
+# Construir imagen
+docker build -t reitcom-web .
+
+# Correr contenedor
+docker run -p 8080:80 reitcom-web
+```
