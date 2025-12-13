@@ -1,9 +1,13 @@
 import { defineConfig } from 'astro/config';
 import tailwind from "@astrojs/tailwind";
-
-import preact from "@astrojs/preact";
+import react from "@astrojs/react";
+import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [tailwind(), preact()]
+  site: 'https://reitcom.ec', // Replace with actual domain
+  integrations: [tailwind(), react(), sitemap()],
+  build: {
+    format: 'directory'
+  }
 });
