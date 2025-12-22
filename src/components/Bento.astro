@@ -1,77 +1,183 @@
 ---
-import BentoItem from './BentoItem.astro'
+import Card from "./ui/Card.astro";
 ---
 
-<section class="w-full max-w-[1400px] grid lg:grid-cols-10 auto-rows-[30rem] gap-4 mx-auto p-6 md:p-12 lg:p-20">
-  <BentoItem class="col-span-10 lg:col-span-4" title="SEGURIDAD">
-    <div slot="image" class="background absolute bottom-0 left-0 top-0 -z-10 h-full w-full bg-blue-950 bg-cover bg-center bg-no-repeat opacity-90 bg-blend-luminosity duration-1000 ease-in-out group-hover:scale-110" data-src="/.webp">
-      <img src="/Security_Desktop.webp" alt="Imagen 1" class="w-full h-full object-cover" />
-    </div>
-    <p slot="content" class="max-w-xl">
-      Descubra la tranquilidad de navegar en línea con nuestra red inteligente, ahora equipada con <strong>seguridad integrada</strong> sin costo adicional. Proteja su experiencia en línea contra <strong>virus</strong>, <strong>malware</strong> y más, ¡sin preocupaciones! Explore la web con <strong>confianza</strong> y <strong>seguridad</strong> mientras aprovecha al máximo nuestros servicios.
-    </p>
-  </BentoItem>
+<section
+    class="py-32 relative z-10 bg-background transition-colors duration-500"
+>
+    <div class="container mx-auto px-6 max-w-[1400px]">
+        <div
+            class="text-center mb-24 animate-fade-in-up duration-700 view-timeline-name:--reveal view-timeline-axis:block"
+        >
+            <h2
+                class="text-4xl md:text-6xl font-black text-text-main mb-6 tracking-tight"
+            >
+                Tecnología Superior
+            </h2>
+            <p
+                class="text-xl text-text-secondary max-w-2xl mx-auto font-medium leading-relaxed"
+            >
+                Diseñada para superar tus expectativas de conectividad.
+            </p>
+        </div>
 
-  <BentoItem class="col-span-10 lg:col-span-6" title="VELOCIDAD">
-    <div slot="image" class="background absolute bottom-0 left-0 top-0 -z-10 h-full w-full bg-blue-950 bg-cover bg-center bg-no-repeat opacity-90 bg-blend-luminosity duration-1000 ease-in-out group-hover:scale-110" data-src="/.webp">
-      <img src="/speed.webp" alt="Imagen 2" class="w-full h-full object-cover" />
-    </div>
-    <p slot="content" class="max-w-xl">
-      Nuestros planes de internet van más allá de la simple conexión. Ofrecemos <strong>velocidades ultra rápidas</strong> y una <strong>conectividad confiable</strong> para brindar la mejor experiencia en línea. Nuestro dedicado equipo de ingenieros trabaja constantemente para garantizar la <strong>excelencia</strong> en cada conexión. ¿Listo para experimentar la diferencia? ¡Contáctanos ahora para obtener más información y aprovechar nuestras <strong>ofertas exclusivas</strong>!
-    </p>
-  </BentoItem>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 auto-rows-[400px]">
+            <!-- Speed Card (Large) -->
+            <Card
+                class="md:col-span-2 md:row-span-2 flex flex-col justify-end group relative p-0 overflow-hidden animate-fade-in duration-700 delay-100"
+                hover={true}
+            >
+                <!-- Image Container -->
+                <div class="absolute inset-0 z-0">
+                    <img
+                        src="/speed.webp"
+                        alt="Velocidad"
+                        class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+                        loading="lazy"
+                    />
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"
+                    >
+                    </div>
+                </div>
 
-  <BentoItem class="col-span-10 lg:col-span-6" title="COBERTURA">
-    <div slot="image" class="background absolute bottom-0 left-0 top-0 -z-10 h-full w-full bg-blue-950 bg-cover bg-center bg-no-repeat opacity-90 bg-blend-luminosity duration-1000 ease-in-out group-hover:scale-110" data-src="/.webp">
-      <img src="/Module-new.webp" alt="Imagen 3" class="w-full h-full object-cover" />
-    </div>
-    <p slot="content" class="max-w-xl">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sagittis orci vel nisi feugiat, nec efficitur nisl lobortis. Sed ut massa varius, fermentum elit sed, faucibus mi. Sed vel justo sit amet mi varius varius ac in est. Fusce sit amet nunc in ex consectetur eleifend id et turpis. Sed ut odio eu metus faucibus condimentum. Fusce non mi nec nulla congue luctus.
-    </p>
-  </BentoItem>
+                <div
+                    class="relative z-20 p-12 translate-y-4 group-hover:translate-y-0 transition-transform duration-500"
+                >
+                    <div
+                        class="w-16 h-16 rounded-3xl bg-primary/20 backdrop-blur-md flex items-center justify-center mb-6 text-white border border-white/10 shadow-glow"
+                    >
+                        <svg
+                            class="w-8 h-8"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                            ><path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg
+                        >
+                    </div>
+                    <h3 class="text-4xl font-bold text-white mb-4">
+                        Velocidad Simétrica
+                    </h3>
+                    <p
+                        class="text-gray-200 max-w-lg font-medium text-lg leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100"
+                    >
+                        Sube archivos tan rápido como los descargas. Ideal para
+                        creadores de contenido y profesionales.
+                    </p>
+                </div>
+            </Card>
 
-  <BentoItem class="col-span-10 lg:col-span-4" title="ENTRETENIMIENTO">
-    <div slot="image" class="background absolute bottom-0 left-0 top-0 -z-10 h-full w-full bg-blue-950 bg-cover bg-center bg-no-repeat opacity-90 bg-blend-luminosity duration-1000 ease-in-out group-hover:scale-110" data-src="/.webp">
-      <img src="/hogar.webp" alt="Imagen 4" class="w-full h-full object-cover" />
+            <!-- Security Card -->
+            <Card
+                class="flex flex-col justify-between group p-10 animate-fade-in duration-700 delay-200"
+                hover={true}
+                glass={true}
+            >
+                <div
+                    class="absolute inset-0 z-0 opacity-0 group-hover:opacity-10 transition-opacity duration-500"
+                >
+                    <img
+                        src="/Security_Desktop.webp"
+                        class="w-full h-full object-cover"
+                        loading="lazy"
+                    />
+                </div>
+                <div
+                    class="relative z-10 w-14 h-14 rounded-2xl bg-blue-500/10 flex items-center justify-center mb-4 text-blue-500 group-hover:scale-110 transition-transform duration-300"
+                >
+                    <svg
+                        class="w-7 h-7"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        ><path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+                        ></path></svg
+                    >
+                </div>
+                <div class="relative z-10">
+                    <h3 class="text-2xl font-bold text-text-main mb-3">
+                        Seguridad Activa
+                    </h3>
+                    <p class="text-text-secondary font-medium leading-relaxed">
+                        Protección contra DDoS y malware incluida en tu
+                        conexión.
+                    </p>
+                </div>
+            </Card>
+
+            <!-- Gaming Card -->
+            <Card
+                class="flex flex-col justify-between group p-10 animate-fade-in duration-700 delay-300"
+                hover={true}
+                glass={true}
+            >
+                <div
+                    class="relative z-10 w-14 h-14 rounded-2xl bg-secondary/10 flex items-center justify-center mb-4 text-secondary group-hover:scale-110 transition-transform duration-300"
+                >
+                    <svg
+                        class="w-7 h-7"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        ><path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z"
+                        ></path></svg
+                    >
+                </div>
+                <div class="relative z-10">
+                    <h3 class="text-2xl font-bold text-text-main mb-3">
+                        Modo Gamer
+                    </h3>
+                    <p class="text-text-secondary font-medium leading-relaxed">
+                        Latencia ultra baja y rutas optimizadas para servidores
+                        de juegos.
+                    </p>
+                </div>
+            </Card>
+
+            <!-- Support Card (Wide) -->
+            <Card
+                class="md:col-span-2 flex items-center justify-between group p-12 animate-fade-in duration-700 delay-400"
+                hover={true}
+                glass={true}
+            >
+                <div class="relative z-10 max-w-lg">
+                    <h3 class="text-3xl font-bold text-text-main mb-4">
+                        Soporte 24/7
+                    </h3>
+                    <p class="text-text-secondary font-medium text-lg">
+                        Estamos siempre listos para ayudarte, sin bots molestos.
+                        Personas reales, soluciones reales.
+                    </p>
+                </div>
+                <div
+                    class="w-20 h-20 rounded-full bg-surface flex items-center justify-center border border-border group-hover:bg-primary group-hover:text-white transition-colors text-text-secondary shadow-lg group-hover:scale-110 duration-300"
+                >
+                    <svg
+                        class="w-10 h-10"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        ><path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"
+                        ></path></svg
+                    >
+                </div>
+            </Card>
+        </div>
     </div>
-    <p slot="content" class="max-w-xl">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sagittis orci vel nisi feugiat, nec efficitur nisl lobortis. Sed ut massa varius, fermentum elit sed, faucibus mi. Sed vel justo sit amet mi varius varius ac in est. Fusce sit amet nunc in ex consectetur eleifend id et turpis. Sed ut odio eu metus faucibus condimentum. Fusce non mi nec nulla congue luctus.
-    </p>
-  </BentoItem>
 </section>
-
-
-<script>
-  document.addEventListener("astro:page-load", () => {
-    const backgrounds = document.querySelectorAll(
-      ".background"
-    ) as NodeListOf<HTMLElement>
-
-    if (window.IntersectionObserver == null) {
-      backgrounds.forEach((bkg) => {
-        bkg.style.backgroundImage = "url('" + bkg.dataset.src + "')"
-      })
-      return
-    }
-
-    function handleIntersection(entries: IntersectionObserverEntry[]) {
-      entries.map((entry) => {
-        if (entry.isIntersecting) {
-          const target = entry.target as HTMLElement
-          const { style, dataset } = target
-          // Item has crossed our observation
-          // threshold - load src from data-src
-          style.backgroundImage = "url('" + dataset.src + "')"
-          // Job done for this item - no need to watch it!
-          observer.unobserve(entry.target)
-        }
-      })
-    }
-
-    const observer = new IntersectionObserver(handleIntersection, {
-      rootMargin: "100px",
-    })
-
-    backgrounds.forEach((bkg) => observer.observe(bkg))
-  })
-</script>
