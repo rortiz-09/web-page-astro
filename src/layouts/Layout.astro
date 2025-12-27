@@ -1,126 +1,110 @@
 ---
-import { ViewTransitions } from 'astro:transitions';
-import { imageConfig } from 'astro:assets';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import "@fontsource/gothic-a1"
+import { ViewTransitions } from "astro:transitions";
+import "@fontsource-variable/montserrat";
+import SEO from "../components/SEO.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
 
 interface Props {
-  description: string;
-  title: string;
-  showHeader?: boolean;
-  showFooter?: boolean;
+    title: string;
+    description?: string;
+    simple?: boolean;
 }
 
-const { description, title, showHeader = true, showFooter = true } = Astro.props;
+const {
+    title,
+    description = "Reitcom - Internet de Ultra Alta Velocidad",
+    simple = false,
+} = Astro.props;
 ---
 
 <!doctype html>
-<html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="description" content={description} />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <title>{title}</title>
-    <link rel="preload" href="/logo.astro" />
-    <slot name="preload" />
-  </head>
-  <body>
-    {showHeader && <Header />}
-    <slot />
-    {showFooter && <Footer />}
+<html lang="es" class="scroll-smooth">
+    <head>
+        <SEO title={title} description={description} />
+        <ViewTransitions />
+    </head>
+    <body
+        class="bg-background text-text-main font-sans antialiased selection:bg-primary selection:text-white transition-colors duration-500 flex flex-col min-h-screen"
+    >
+        <!-- Skip to Content Link for A11y -->
+        <a
+            href="#main-content"
+            class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 z-[200] bg-primary text-white px-6 py-3 rounded-full font-bold shadow-xl"
+        >
+            Saltar al contenido principal
+        </a>
 
-    <style is:global>
-      :root {
-        color-scheme: dark;
-        --entry-animation: -20px;
-        --cover-animation: 20px;
-      }
-      @media (min-width: 1400px) {
-        :root {
-          --entry-animation: -100px;
-          --cover-animation: 100px;
-        }
-      }
+        {/* Conditionally render Header */}
+        {!simple && <Header />}
 
-      @font-face {
-        font-family: "Gothic A1";
-        font-style: normal;
-        font-weight: normal;
-        font-display: swap;
-        src: url("/fonts/gothic-a1") format("woff2");
-        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
-          U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC,
-          U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-      }
+        <main
+            id="main-content"
+            class="flex-grow focus:outline-none"
+            tabindex="-1"
+        >
+            <slot />
+        </main>
 
-      html {
-        font-family: "Gothic A1", system-ui, sans-serif;
-        background: #262830;
-        color-scheme: dark light;
-      }
+        {/* Conditionally render Footer */}
+        {!simple && <Footer />}
 
-      .hover\\:shadow-glow:hover {
-        box-shadow: 0 0 10px rgba(255, 111, 105, 0.7), 0 0 20px rgba(255, 111, 105, 0.7), 0 0 30px rgba(255, 111, 105, 0.7), 0 0 40px rgba(255, 111, 105, 0.7);
-      }
+        <style is:global>
+            :root {
+                /* Light Mode (Clean & Airy) */
+                --bg-primary: #ffffff; /* Brand White */
+                --bg-surface: #f8f9fa; /* Slight contrast for cards */
+                --text-primary: #2e2d2c; /* Brand Neutral Dark */
+                --text-secondary: #666666;
+                --color-support: #BECOC2; /* Brand Support Gray */
+                --border-color: rgba(0, 0, 0, 0.05);
+                --glass-bg: rgba(255, 255, 255, 0.7);
+                --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+            }
 
-      ::-webkit-scrollbar {
-        width: 8px;
-      }
-      ::-webkit-scrollbar-track {
-        background: transparent;
-        backdrop-filter: blur(10px);
-        border-radius: 5px;
-      }
-      ::-webkit-scrollbar-thumb {
-        background: rgba(255, 255, 255, 0.3);
-        backdrop-filter: blur(10px);
-        border-radius: 5px;
-      }
-      ::-webkit-scrollbar-thumb:hover {
-        background: rgba(255, 255, 255, 0.5);
-      }
+            @media (prefers-color-scheme: dark) {
+                :root {
+                    /* Dark Mode (Deep & Premium) */
+                    --bg-primary: #050505; /* True Black */
+                    --bg-surface: #121212;
+                    --text-primary: #ffffff;
+                    --text-secondary: #a1a1a4;
+                    --border-color: rgba(255, 255, 255, 0.08);
+                    --glass-bg: rgba(10, 10, 10, 0.7);
+                    --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+                }
+            }
 
-      p {
-        color: rgba(255, 255, 255, 0.9);
-        line-height: 1.4;
-        margin-bottom: 1em;
-        font-weight: 100;
-        font-size: 1em;
-        letter-spacing: 0.5px;
-      }
-      p strong {
-        color: white;
-        font-weight: 700;
-      }
-      .text__glowing {
-        transition: text-shadow 0.3s ease;
-      }
-      .text__glowing:hover {
-        text-shadow:
-        0 0 10px #fff,
-        0 0 20px #fff,
-        0 0 40px #fff,
-        0 0 80px #fff,
-        0 0 120px #fff;
-      }
+            body {
+                margin: 0;
+                padding: 0;
+                overflow-x: hidden;
+            }
 
-      #header-nav {
-        animation: blur linear both;
-        animation-timeline: scroll();
-        animation-range: 0 1000px;
-      }
+            /* Smooth Scrolling for Anchor Links */
+            html {
+                scroll-behavior: smooth;
+                scroll-padding-top: 100px; /* Offset for fixed header */
+            }
 
-      @keyframes blur {
-        to {
-          box-shadow:
-            0px 5px 50px -5px rgba(0, 0, 0, 0.1),
-            0px 0px 0 1px rgba(0, 0, 0, 0.3);
-          background: rgba(0, 0, 0, 0.3);
-          backdrop-filter: blur(10px);
-        }
-      }
-    </style>
-  </body>
+            /* Focus Visible for A11y */
+            :focus-visible {
+                outline: 2px solid var(--text-primary);
+                outline-offset: 2px;
+            }
+
+            /* Premium Gradients */
+            .text-gradient {
+                background: linear-gradient(to right, #f9423a, #ffd700);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                color: transparent;
+            }
+
+            .bg-gradient-brand {
+                background: linear-gradient(to right, #f9423a, #ffd700);
+            }
+        </style>
+    </body>
 </html>
