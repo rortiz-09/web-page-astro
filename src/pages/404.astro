@@ -1,4 +1,49 @@
 ---
-import Error from "../components/pages/error.astro";
+import Layout from "../layouts/Layout.astro";
+import Button from "../components/ui/Button.astro";
 ---
-<Error/>
+
+<Layout title="404 - Página No Encontrada">
+    <main
+        class="min-h-[80vh] flex items-center justify-center relative overflow-hidden"
+    >
+        <!-- Background Blobs -->
+        <div
+            class="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-[100px] -z-10 animate-pulse"
+        >
+        </div>
+        <div
+            class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/20 rounded-full blur-[100px] -z-10 animate-pulse delay-1000"
+        >
+        </div>
+
+        <div class="container mx-auto px-6 text-center z-10">
+            <h1
+                class="text-[10rem] md:text-[15rem] font-black text-gradient leading-none select-none animate-fade-in"
+            >
+                404
+            </h1>
+            <h2
+                class="text-3xl md:text-5xl font-bold text-text-main mb-8 animate-fade-in-up"
+            >
+                Oops! Te has perdido.
+            </h2>
+            <p
+                class="text-xl text-text-secondary max-w-lg mx-auto mb-12 animate-fade-in-up delay-100"
+            >
+                La página que buscas no existe o ha sido movida. Pero no te
+                preocupes, siempre puedes volver a conectarte.
+            </p>
+            <div class="animate-fade-in-up delay-200">
+                <Button
+                    href="/"
+                    variant="primary"
+                    size="lg"
+                    class="shadow-xl shadow-primary/30"
+                >
+                    Volver al Inicio
+                </Button>
+            </div>
+        </div>
+    </main>
+</Layout>
