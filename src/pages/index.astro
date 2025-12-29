@@ -1,5 +1,14 @@
 ---
-import App from "../components/pages/App.astro"
+import Layout from "../layouts/Layout.astro";
+import Intro from "../components/Intro.astro";
+import StickyFeatures from "../components/StickyFeatures.astro";
+import Testimonials from "../components/Testimonials.astro";
 ---
 
-<App />
+<Layout title="Reitcom - Internet de Fibra Óptica">
+    <main>
+        <Intro />
+        <StickyFeatures />
+        <Testimonials />
+    </main>
+</Layout>
