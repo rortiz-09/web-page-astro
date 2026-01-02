@@ -1,0 +1,93 @@
+---
+const features = [
+    {
+        name: "Velocidad de Bajada",
+        basic: "100 Mbps",
+        pro: "300 Mbps",
+        ultra: "600 Mbps",
+    },
+    {
+        name: "Velocidad de Subida",
+        basic: "100 Mbps",
+        pro: "300 Mbps",
+        ultra: "600 Mbps",
+    },
+    {
+        name: "Tecnología",
+        basic: "Fibra Óptica",
+        pro: "Fibra Óptica",
+        ultra: "Fibra Óptica",
+    },
+    {
+        name: "Router",
+        basic: "Dual Band AC",
+        pro: "WiFi 6 AX",
+        ultra: "Mesh System",
+    },
+    {
+        name: "IP Pública",
+        basic: "Compartida",
+        pro: "Dinámica",
+        ultra: "Fija (Opcional)",
+    },
+    {
+        name: "Soporte",
+        basic: "Estándar 24/7",
+        pro: "Prioritario",
+        ultra: "VIP Dedicado",
+    },
+    { name: "Instalación", basic: "Gratis", pro: "Gratis", ultra: "Gratis" },
+    {
+        name: "Netflix/Streaming",
+        basic: "HD",
+        pro: "4K UHD",
+        ultra: "8K / Multi-stream",
+    },
+    { name: "Gaming", basic: "Bueno", pro: "Excelente", ultra: "Profesional" },
+];
+---
+
+<div class="overflow-x-auto pb-8">
+    <table class="w-full text-left border-collapse min-w-[800px]">
+        <thead>
+            <tr>
+                <th
+                    class="p-6 text-text-secondary font-bold uppercase text-sm tracking-wider border-b border-border"
+                    >Característica</th
+                >
+                <th
+                    class="p-6 text-text-main font-black text-xl border-b border-border w-1/4"
+                    >Hogar Básico</th
+                >
+                <th
+                    class="p-6 text-primary font-black text-xl border-b border-border w-1/4 bg-primary/5 rounded-t-2xl"
+                    >Gamer Pro</th
+                >
+                <th
+                    class="p-6 text-text-main font-black text-xl border-b border-border w-1/4"
+                    >Ultra Velocidad</th
+                >
+            </tr>
+        </thead>
+        <tbody>
+            {
+                features.map((feature, index) => (
+                    <tr class="group hover:bg-surface/50 transition-colors">
+                        <td class="p-6 text-text-main font-bold border-b border-border group-last:border-0">
+                            {feature.name}
+                        </td>
+                        <td class="p-6 text-text-secondary border-b border-border group-last:border-0">
+                            {feature.basic}
+                        </td>
+                        <td class="p-6 text-text-main font-bold border-b border-border bg-primary/5 group-last:border-0 group-last:rounded-b-2xl">
+                            {feature.pro}
+                        </td>
+                        <td class="p-6 text-text-secondary border-b border-border group-last:border-0">
+                            {feature.ultra}
+                        </td>
+                    </tr>
+                ))
+            }
+        </tbody>
+    </table>
+</div>
