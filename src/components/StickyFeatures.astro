@@ -1,0 +1,181 @@
+---
+
+
+const features = [
+  {
+    title: "Velocidad Simétrica",
+    description: "Sube archivos tan rápido como los descargas. Ideal para creadores de contenido, streamers y profesionales que exigen lo mejor.",
+    icon: "M13 10V3L4 14h7v7l9-11h-7z",
+    image: "/speed.webp",
+    color: "bg-primary",
+    text: "text-white"
+  },
+  {
+    title: "Seguridad Activa",
+    description: "Navega con tranquilidad. Nuestra red incluye protección avanzada contra ataques DDoS y malware, manteniendo tus dispositivos seguros.",
+    icon: "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z",
+    image: "/Security_Desktop.webp",
+    color: "bg-blue-500",
+    text: "text-white"
+  },
+  {
+    title: "Modo Gamer",
+    description: "Latencia ultra baja y rutas optimizadas hacia los servidores de juegos más populares. Domina la partida sin lag.",
+    icon: "M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z",
+    image: "/video.webm", // Using video if available, or fallback image
+    isVideo: true,
+    color: "bg-purple-600",
+    text: "text-white"
+  },
+  {
+    title: "Soporte 24/7",
+    description: "Estamos siempre listos para ayudarte. Sin bots molestos, solo personas reales resolviendo problemas reales en tiempo récord.",
+    icon: "M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z",
+    image: "/hogar.webp",
+    color: "bg-green-500",
+    text: "text-white"
+  }
+];
+---
+
+<section class="relative bg-background" id="features-section">
+  <div class="container mx-auto px-6 py-24 text-center relative z-10">
+    <h2 class="text-4xl md:text-6xl font-black text-text-main mb-6 tracking-tight animate-fade-in-up">
+      Tecnología <span class="text-gradient">Superior</span>
+    </h2>
+    <p class="text-xl text-text-secondary max-w-2xl mx-auto font-medium leading-relaxed animate-fade-in-up delay-100">
+      Descubre por qué somos la red #1 de Ecuador.
+    </p>
+  </div>
+
+  <!-- Scroll Container (Height determines scroll length) -->
+  <div class="relative h-[700vh]" id="scroll-container">
+    <!-- Sticky Viewport -->
+    <div class="sticky top-0 h-screen flex items-center justify-center overflow-hidden">
+      
+      <!-- Cards Container -->
+      <div class="relative w-full max-w-[1400px] h-full flex items-center justify-center">
+        {features.map((feature, index) => (
+          <div 
+            class="feature-card absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-0 px-6 pointer-events-none"
+            data-index={index}
+          >
+            <div class="relative w-full max-w-6xl flex flex-col md:flex-row items-center justify-between gap-12">
+              
+              <!-- Text Content -->
+              <div class="flex-1 text-left md:pr-12 transform translate-y-8 transition-transform duration-500 ease-out feature-text">
+                <div class={`w-20 h-20 rounded-3xl ${feature.color} flex items-center justify-center mb-8 shadow-2xl shadow-current/30`}>
+                  <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={feature.icon}></path>
+                  </svg>
+                </div>
+                <h3 class="text-5xl md:text-7xl font-black text-text-main mb-6 tracking-tight leading-none">
+                  {feature.title}
+                </h3>
+                <p class="text-xl md:text-2xl text-text-secondary font-medium leading-relaxed max-w-xl">
+                  {feature.description}
+                </p>
+              </div>
+
+              <!-- Visual Content -->
+              <div class="flex-1 w-full max-w-xl aspect-square md:aspect-[4/3] relative rounded-[3rem] overflow-hidden shadow-2xl shadow-black/20 transform scale-90 transition-transform duration-500 ease-out feature-visual group">
+                 <div class={`absolute inset-0 ${feature.color} opacity-20 mix-blend-overlay z-10`}></div>
+                 {feature.isVideo ? (
+                    <video 
+                      src={feature.image} 
+                      class="w-full h-full object-cover"
+                      autoplay 
+                      muted 
+                      loop 
+                      playsinline
+                    />
+                 ) : (
+                    <img 
+                      src={feature.image} 
+                      alt={feature.title} 
+                      class="w-full h-full object-cover"
+                      loading="lazy"
+                    />
+                 )}
+                 
+                 <!-- Glass Overlay -->
+                 <div class="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-black/80 to-transparent z-20">
+                    <div class="h-1 w-24 bg-white/50 rounded-full mb-4 backdrop-blur-md"></div>
+                 </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const section = document.getElementById('scroll-container');
+  const cards = document.querySelectorAll('.feature-card');
+  const totalCards = cards.length;
+
+  function handleScroll() {
+    if (!section) return;
+    
+    const rect = section.getBoundingClientRect();
+    const viewportHeight = window.innerHeight;
+    
+    // Calculate progress through the section (0 to 1)
+    const end = rect.height - viewportHeight;
+    const current = -rect.top;
+    
+    let progress = Math.max(0, Math.min(1, current / end));
+    
+    // Map progress to card indices
+    const rawIndex = progress * (totalCards - 1);
+    
+    cards.forEach((card, index) => {
+      const text = card.querySelector('.feature-text');
+      const visual = card.querySelector('.feature-visual');
+      
+      const distance = rawIndex - index;
+      const absDistance = Math.abs(distance);
+      
+      // Stricter opacity curve to prevent overlap
+      // Opacity drops to 0 when distance is > 0.6
+      // At distance 0.5 (midpoint), opacity is 0.25
+      let opacity = Math.max(0, 1 - absDistance * 1.5);
+      
+      // Scale effect
+      let scale = 1 - absDistance * 0.2;
+      
+      // Blur effect for exiting cards
+      let blur = absDistance * 10;
+      
+      // Translate Y effect
+      let translateY = distance * 100;
+
+      // Apply styles
+      const cardEl = card as HTMLElement;
+      cardEl.style.opacity = opacity.toString();
+      cardEl.style.zIndex = Math.round(opacity * 10).toString();
+      cardEl.style.filter = `blur(${blur}px)`;
+      
+      // Enable pointer events only for the active card
+      if (opacity > 0.8) {
+        cardEl.style.pointerEvents = 'auto';
+      } else {
+        cardEl.style.pointerEvents = 'none';
+      }
+      
+      if (text) {
+         (text as HTMLElement).style.transform = `translateY(${translateY}px)`;
+      }
+      if (visual) {
+         (visual as HTMLElement).style.transform = `scale(${scale})`;
+      }
+    });
+  }
+
+  window.addEventListener('scroll', handleScroll);
+  window.addEventListener('resize', handleScroll);
+  // Initial call
+  handleScroll();
+</script>
