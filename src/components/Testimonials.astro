@@ -1,0 +1,283 @@
+---
+import Card from "./ui/Card.astro";
+
+const testimonials = [
+    {
+        name: "Carlos M.",
+        role: "Gamer Profesional",
+        content:
+            "El ping en juegos competitivos es increíble. Pasé de 60ms a 5ms estables. Reitcom cambió mi forma de jugar.",
+        avatar: "C",
+        color: "bg-red-500",
+        rating: 5,
+    },
+    {
+        name: "Ana P.",
+        role: "Diseñadora Gráfica",
+        content:
+            "Subir archivos de 2GB en segundos es un sueño hecho realidad. La velocidad simétrica es real y constante.",
+        avatar: "A",
+        color: "bg-yellow-500",
+        rating: 5,
+    },
+    {
+        name: "Familia Torres",
+        role: "Plan Hogar",
+        content:
+            "Somos 5 en casa y todos vemos streaming en 4K al mismo tiempo sin que se corte. El mejor servicio que hemos tenido.",
+        avatar: "F",
+        color: "bg-blue-500",
+        rating: 4,
+    },
+    {
+        name: "TechSolutions S.A.",
+        role: "Plan Corporativo",
+        content:
+            "La estabilidad de la conexión es vital para nuestra empresa. El soporte 24/7 de Reitcom es de primera clase.",
+        avatar: "T",
+        color: "bg-purple-500",
+        rating: 5,
+    },
+    {
+        name: "Pedro S.",
+        role: "Desarrollador Web",
+        content:
+            "La conexión nunca se cae. Para mi trabajo remoto, la fiabilidad es lo más importante y Reitcom cumple al 100%.",
+        avatar: "P",
+        color: "bg-green-500",
+        rating: 4,
+    },
+    {
+        name: "María L.",
+        role: "Profesora Online",
+        content:
+            "Mis clases por Zoom son fluidas y sin interrupciones. Mis alumnos me escuchan y ven perfectamente.",
+        avatar: "M",
+        color: "bg-pink-500",
+        rating: 5,
+    },
+    {
+        name: "Café Central",
+        role: "Negocio Local",
+        content:
+            "Ofrecemos WiFi gratis a nuestros clientes y la velocidad es excelente incluso con el local lleno.",
+        avatar: "C",
+        color: "bg-orange-500",
+        rating: 3,
+    },
+    {
+        name: "Juan R.",
+        role: "Streamer Twitch",
+        content:
+            "Cero frames perdidos en mis directos de 8 horas. La estabilidad de subida es impresionante.",
+        avatar: "J",
+        color: "bg-indigo-500",
+        rating: 5,
+    },
+    {
+        name: "Lucía G.",
+        role: "Estudiante",
+        content:
+            "Descargo libros y videos para mi tesis en segundos. Me ahorra muchísimo tiempo de estudio.",
+        avatar: "L",
+        color: "bg-teal-500",
+        rating: 4,
+    },
+    {
+        name: "Arq. Roberto F.",
+        role: "Arquitecto",
+        content:
+            "Enviamos planos y renders pesados a clientes en el extranjero sin problemas. Muy recomendado.",
+        avatar: "R",
+        color: "bg-cyan-500",
+        rating: 5,
+    },
+    {
+        name: "Clínica Dental",
+        role: "Salud",
+        content:
+            "Nuestro sistema de citas en la nube funciona rápido y sin demoras gracias a la fibra de Reitcom.",
+        avatar: "C",
+        color: "bg-emerald-500",
+        rating: 5,
+    },
+    {
+        name: "Sofía B.",
+        role: "Fotógrafa",
+        content:
+            "Hago backups de mis sesiones en la nube diariamente. Lo que antes tomaba horas, ahora toma minutos.",
+        avatar: "S",
+        color: "bg-rose-500",
+        rating: 4,
+    },
+    {
+        name: "Andrés K.",
+        role: "Trader",
+        content:
+            "En el trading cada milisegundo cuenta. La latencia de Reitcom me da la ventaja que necesito.",
+        avatar: "A",
+        color: "bg-slate-500",
+        rating: 5,
+    },
+    {
+        name: "Familia Ruiz",
+        role: "Smart Home",
+        content:
+            "Tenemos cámaras, luces y asistentes de voz conectados. Todo responde al instante.",
+        avatar: "F",
+        color: "bg-violet-500",
+        rating: 4,
+    },
+    {
+        name: "Restaurante El Sabor",
+        role: "Gastronomía",
+        content:
+            "Los pedidos online llegan al instante a nuestra cocina. La eficiencia ha mejorado notablemente.",
+        avatar: "R",
+        color: "bg-lime-500",
+        rating: 3,
+    },
+    {
+        name: "Elena V.",
+        role: "Influencer",
+        content:
+            "Subir historias y reels en alta calidad es instantáneo. Me encanta la velocidad de este internet.",
+        avatar: "E",
+        color: "bg-fuchsia-500",
+        rating: 5,
+    },
+];
+---
+
+<section class="py-32 bg-surface relative overflow-hidden">
+    <div class="container mx-auto px-6 max-w-[1400px] mb-12 text-center">
+        <h2
+            class="text-4xl md:text-5xl font-black text-text-main mb-6 tracking-tight"
+        >
+            Lo que dicen nuestros clientes
+        </h2>
+        <p class="text-xl text-text-secondary max-w-2xl mx-auto">
+            Personas reales, experiencias reales. Únete a la comunidad mejor
+            conectada.
+        </p>
+    </div>
+
+    <!-- Marquee Container -->
+    <div class="relative w-full overflow-hidden mask-gradient">
+        <div
+            class="flex gap-16 w-max animate-marquee hover:pause"
+            id="testimonials-track"
+        >
+            {
+                testimonials.map((t) => (
+                    <Card
+                        class="testimonial-card w-[350px] h-[350px] p-8 flex flex-col justify-between shrink-0"
+                        glass={true}
+                        hover={true}
+                    >
+                        <div>
+                            <div class="flex items-center gap-4 mb-6">
+                                <div
+                                    class={`w-12 h-12 rounded-full ${t.color} flex items-center justify-center text-white font-bold text-xl shadow-lg shrink-0`}
+                                >
+                                    {t.avatar}
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-text-main text-lg leading-tight">
+                                        {t.name}
+                                    </h4>
+                                    <p class="text-sm text-text-secondary font-medium">
+                                        {t.role}
+                                    </p>
+                                </div>
+                            </div>
+                            <p class="text-text-main text-base leading-relaxed italic line-clamp-5">
+                                "{t.content}"
+                            </p>
+                        </div>
+
+                        <div class="flex gap-1 mt-4">
+                            {Array.from({ length: t.rating }).map(() => (
+                                <svg
+                                    class="w-5 h-5 text-yellow-400 fill-current"
+                                    viewBox="0 0 20 20"
+                                >
+                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                </svg>
+                            ))}
+                            {Array.from({ length: 5 - t.rating }).map(() => (
+                                <svg
+                                    class="w-5 h-5 text-gray-300 fill-current"
+                                    viewBox="0 0 20 20"
+                                >
+                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                </svg>
+                            ))}
+                        </div>
+                    </Card>
+                ))
+            }
+        </div>
+    </div>
+</section>
+
+<style>
+    .mask-gradient {
+        mask-image: linear-gradient(
+            to right,
+            transparent,
+            black 10%,
+            black 90%,
+            transparent
+        );
+        -webkit-mask-image: linear-gradient(
+            to right,
+            transparent,
+            black 10%,
+            black 90%,
+            transparent
+        );
+    }
+
+    @keyframes marquee {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(-50%);
+        }
+    }
+
+    .animate-marquee {
+        animation: marquee 120s linear infinite;
+    }
+
+    .hover\:pause:hover {
+        animation-play-state: paused;
+    }
+</style>
+
+<script>
+    // Randomize testimonials on load
+    const track = document.getElementById("testimonials-track");
+
+    if (track) {
+        // 1. Get all cards
+        const cards = Array.from(track.children);
+
+        // 2. Shuffle them
+        for (let i = cards.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [cards[i], cards[j]] = [cards[j], cards[i]];
+        }
+
+        // 3. Re-append shuffled cards
+        cards.forEach((card) => track.appendChild(card));
+
+        // 4. Clone for infinite loop (append a copy of the shuffled list)
+        cards.forEach((card) => {
+            const clone = card.cloneNode(true);
+            track.appendChild(clone);
+        });
+    }
+</script>
