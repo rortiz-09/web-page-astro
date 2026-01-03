@@ -1,0 +1,72 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Button from "../components/ui/Button.astro";
+import Input from "../components/ui/Input.astro";
+import CoverageMap from "../components/CoverageMap";
+---
+
+<Layout title="Cobertura - Reitcom">
+    <main class="pt-32 pb-32 container mx-auto px-6 max-w-[1400px]">
+        <div class="max-w-4xl mx-auto text-center mb-24">
+            <h1
+                class="text-5xl md:text-7xl font-black text-text-main mb-8 tracking-tight"
+            >
+                Verifica tu <span class="text-gradient">Cobertura</span>
+            </h1>
+            <p
+                class="text-xl text-text-secondary max-w-2xl mx-auto leading-relaxed"
+            >
+                Selecciona tu ubicación en el mapa o ingresa tus datos para
+                validar disponibilidad.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+            <!-- Map Section -->
+            <div
+                class="bg-surface border border-border rounded-[2.5rem] p-3 shadow-2xl shadow-black/5 overflow-hidden h-[600px]"
+            >
+                <div
+                    class="w-full h-full rounded-[2rem] overflow-hidden relative z-0"
+                >
+                    <CoverageMap client:only="react" />
+                </div>
+            </div>
+
+            <!-- Form Section -->
+            <div
+                class="bg-surface/50 backdrop-blur-xl border border-white/20 dark:border-white/5 rounded-[2.5rem] p-10 md:p-14 shadow-2xl shadow-primary/5"
+            >
+                <form class="space-y-8">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <Input label="Provincia" placeholder="Ej: Pichincha" />
+                        <Input label="Ciudad" placeholder="Ej: Quito" />
+                    </div>
+                    <Input
+                        label="Dirección Exacta"
+                        placeholder="Calle principal y secundaria"
+                    />
+                    <Input
+                        label="Referencia"
+                        placeholder="Frente al parque..."
+                    />
+
+                    <div
+                        class="bg-primary/5 border border-primary/10 rounded-2xl p-6"
+                    >
+                        <p class="text-sm text-text-secondary leading-relaxed">
+                            <span class="font-bold text-primary">Nota:</span> Al
+                            seleccionar tu ubicación en el mapa, nos ayudas a verificar
+                            la factibilidad técnica con mayor precisión.
+                        </p>
+                    </div>
+
+                    <Button
+                        class="w-full text-lg shadow-xl shadow-primary/20"
+                        size="lg">Consultar Disponibilidad</Button
+                    >
+                </form>
+            </div>
+        </div>
+    </main>
+</Layout>
