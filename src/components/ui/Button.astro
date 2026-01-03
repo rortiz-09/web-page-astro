@@ -1,0 +1,58 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+/**
+ * Componente Button reutilizable.
+ * Soporta variantes (primary, secondary, outline, ghost) y tamaños (sm, md, lg, xl).
+ * Puede renderizarse como <button> o <a> dependiendo de si se pasa la prop `href`.
+ */
+interface Props extends HTMLAttributes<"button"> {
+    href?: string;
+    variant?: "primary" | "secondary" | "outline" | "ghost";
+    size?: "sm" | "md" | "lg" | "xl";
+    class?: string;
+}
+
+const {
+    variant = "primary",
+    size = "md",
+    href,
+    class: className,
+    "aria-label": ariaLabel,
+    ...rest
+} = Astro.props;
+
+const baseStyles =
+    "inline-flex items-center justify-center rounded-full font-bold tracking-wide transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary disabled:opacity-50 disabled:cursor-not-allowed active:scale-95";
+
+const variants = {
+    primary:
+        "bg-primary text-white shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/40 hover:-translate-y-0.5",
+    secondary:
+        "bg-surface text-text-main hover:bg-white dark:hover:bg-white/10 shadow-sm hover:shadow-md border border-transparent",
+    outline:
+        "bg-transparent border-2 border-border text-text-main hover:border-primary hover:text-primary",
+    ghost: "text-text-muted hover:text-primary hover:bg-primary/5",
+};
+
+const sizes = {
+    sm: "px-5 py-2 text-sm",
+    md: "px-7 py-3.5 text-base",
+    lg: "px-9 py-4 text-lg",
+    xl: "px-12 py-5 text-xl",
+};
+
+const styles = `${baseStyles} ${variants[variant]} ${sizes[size]} ${className || ""}`;
+---
+
+{
+    href ? (
+        <a href={href} class={styles} aria-label={ariaLabel} {...rest}>
+            <slot />
+        </a>
+    ) : (
+        <button class={styles} aria-label={ariaLabel} {...rest}>
+            <slot />
+        </button>
+    )
+}

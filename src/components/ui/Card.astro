@@ -1,0 +1,33 @@
+---
+/**
+ * Componente Card reutilizable.
+ * Se utiliza para mostrar características, beneficios o información destacada.
+ * Soporta variantes de estilo y animaciones.
+ */
+interface Props {
+    class?: string;
+    hover?: boolean;
+    glass?: boolean;
+}
+
+const { class: className, hover = false, glass = true } = Astro.props;
+
+// Minimalist Card: No heavy borders, soft shadows, optional glass effect
+const baseStyles =
+    "relative overflow-hidden rounded-[2rem] transition-all duration-500 ease-out";
+const bgStyles = glass
+    ? "bg-white/70 dark:bg-black/60 backdrop-blur-xl border border-white/20 dark:border-white/5"
+    : "bg-surface border border-transparent";
+
+const hoverStyles = hover
+    ? "hover:shadow-2xl hover:-translate-y-2 hover:bg-white dark:hover:bg-white/5 group"
+    : "shadow-sm";
+
+const styles = `${baseStyles} ${bgStyles} ${hoverStyles} ${className || ""}`;
+---
+
+<div class={styles}>
+    <div class="relative z-10 h-full">
+        <slot />
+    </div>
+</div>
