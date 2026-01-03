@@ -1,0 +1,276 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Card from "../components/ui/Card.astro";
+---
+
+<Layout title="Nosotros - Reitcom">
+    <main class="pt-32 pb-32">
+        <!-- Hero Section -->
+        <div class="container mx-auto px-6 max-w-[1400px] mb-32">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+                <div class="animate-fade-in-right duration-700">
+                    <h1
+                        class="text-5xl md:text-7xl font-black text-text-main mb-10 tracking-tight leading-[1.1]"
+                    >
+                        Conectando <br /><span class="text-gradient"
+                            >Sueños.</span
+                        >
+                    </h1>
+                    <div
+                        class="space-y-8 text-lg text-text-secondary leading-relaxed font-medium"
+                    >
+                        <p>
+                            En Reitcom, no solo vendemos internet; entregamos
+                            oportunidades. Nacimos con la misión de cerrar la
+                            brecha digital en Ecuador, ofreciendo tecnología de
+                            punta a precios justos.
+                        </p>
+                        <p>
+                            Nuestra red de fibra óptica propia nos permite
+                            garantizar una estabilidad y velocidad que otros
+                            solo prometen. Somos un equipo apasionado por la
+                            tecnología y el servicio al cliente.
+                        </p>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-12 mt-16">
+                        <div
+                            class="p-6 rounded-3xl bg-surface border border-border hover:shadow-lg transition-shadow duration-300"
+                        >
+                            <div
+                                class="text-5xl font-black text-primary mb-2 tracking-tight"
+                            >
+                                5k+
+                            </div>
+                            <div
+                                class="text-sm font-bold text-text-main uppercase tracking-wider"
+                            >
+                                Clientes Felices
+                            </div>
+                        </div>
+                        <div
+                            class="p-6 rounded-3xl bg-surface border border-border hover:shadow-lg transition-shadow duration-300"
+                        >
+                            <div
+                                class="text-5xl font-black text-primary mb-2 tracking-tight"
+                            >
+                                99.9%
+                            </div>
+                            <div
+                                class="text-sm font-bold text-text-main uppercase tracking-wider"
+                            >
+                                Uptime Garantizado
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div
+                    class="relative rounded-[3rem] overflow-hidden aspect-square lg:h-[700px] shadow-2xl shadow-primary/10 group animate-fade-in-left duration-700"
+                >
+                    <div
+                        class="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent z-10 mix-blend-overlay"
+                    >
+                    </div>
+                    <img
+                        src="/Module-new.webp"
+                        alt="Infraestructura Reitcom"
+                        class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+                        loading="lazy"
+                    />
+                </div>
+            </div>
+        </div>
+
+        <!-- Values Section -->
+        <section class="py-24 bg-surface/50 relative overflow-hidden">
+            <div class="container mx-auto px-6 max-w-[1400px] relative z-10">
+                <div class="text-center mb-20">
+                    <h2
+                        class="text-4xl md:text-5xl font-black text-text-main mb-6 tracking-tight"
+                    >
+                        Nuestros Valores
+                    </h2>
+                    <p class="text-xl text-text-secondary max-w-2xl mx-auto">
+                        Los pilares que sostienen cada conexión que realizamos.
+                    </p>
+                </div>
+
+                <div
+                    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+                >
+                    <Card class="p-8 h-full" hover={true} glass={true}>
+                        <div
+                            class="w-14 h-14 rounded-2xl bg-red-500/10 flex items-center justify-center mb-6 text-red-500"
+                        >
+                            <svg
+                                class="w-8 h-8"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                                ><path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg
+                            >
+                        </div>
+                        <h3 class="text-2xl font-bold text-text-main mb-4">
+                            Innovación
+                        </h3>
+                        <p class="text-text-secondary leading-relaxed">
+                            Nunca nos conformamos. Buscamos constantemente
+                            nuevas tecnologías para mejorar tu experiencia.
+                        </p>
+                    </Card>
+
+                    <Card class="p-8 h-full" hover={true} glass={true}>
+                        <div
+                            class="w-14 h-14 rounded-2xl bg-blue-500/10 flex items-center justify-center mb-6 text-blue-500"
+                        >
+                            <svg
+                                class="w-8 h-8"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                                ><path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                                ></path></svg
+                            >
+                        </div>
+                        <h3 class="text-2xl font-bold text-text-main mb-4">
+                            Transparencia
+                        </h3>
+                        <p class="text-text-secondary leading-relaxed">
+                            Sin letras pequeñas ni contratos abusivos. Creemos
+                            en una relación honesta con nuestros clientes.
+                        </p>
+                    </Card>
+
+                    <Card class="p-8 h-full" hover={true} glass={true}>
+                        <div
+                            class="w-14 h-14 rounded-2xl bg-yellow-500/10 flex items-center justify-center mb-6 text-yellow-500"
+                        >
+                            <svg
+                                class="w-8 h-8"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                                ><path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"
+                                ></path></svg
+                            >
+                        </div>
+                        <h3 class="text-2xl font-bold text-text-main mb-4">
+                            Comunidad
+                        </h3>
+                        <p class="text-text-secondary leading-relaxed">
+                            Somos parte de tu barrio. Crecemos junto a ti y
+                            apoyamos el desarrollo local.
+                        </p>
+                    </Card>
+
+                    <Card class="p-8 h-full" hover={true} glass={true}>
+                        <div
+                            class="w-14 h-14 rounded-2xl bg-green-500/10 flex items-center justify-center mb-6 text-green-500"
+                        >
+                            <svg
+                                class="w-8 h-8"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                                ><path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"
+                                ></path></svg
+                            >
+                        </div>
+                        <h3 class="text-2xl font-bold text-text-main mb-4">
+                            Soporte Real
+                        </h3>
+                        <p class="text-text-secondary leading-relaxed">
+                            Personas reales atendiendo tus dudas. Olvídate de
+                            los bots frustrantes.
+                        </p>
+                    </Card>
+                </div>
+            </div>
+        </section>
+
+        <!-- Infrastructure Section -->
+        <section class="py-32 relative">
+            <div class="container mx-auto px-6 max-w-[1400px]">
+                <div
+                    class="bg-black rounded-[3rem] p-12 md:p-24 relative overflow-hidden text-center"
+                >
+                    <div
+                        class="absolute inset-0 bg-[url('/speed.webp')] bg-cover bg-center opacity-30"
+                    >
+                    </div>
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent"
+                    >
+                    </div>
+
+                    <div class="relative z-10 max-w-3xl mx-auto">
+                        <h2
+                            class="text-4xl md:text-6xl font-black text-white mb-8 tracking-tight"
+                        >
+                            Infraestructura de <span class="text-gradient"
+                                >Clase Mundial</span
+                            >
+                        </h2>
+                        <p class="text-xl text-gray-300 mb-12 leading-relaxed">
+                            Hemos desplegado miles de kilómetros de fibra óptica
+                            GPON propia para garantizar que tu conexión sea
+                            simétrica, estable y segura. Invertimos
+                            constantemente en redundancia y monitoreo proactivo.
+                        </p>
+                        <div class="flex flex-wrap justify-center gap-6">
+                            <div
+                                class="px-6 py-3 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white font-bold"
+                            >
+                                Tecnología GPON
+                            </div>
+                            <div
+                                class="px-6 py-3 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white font-bold"
+                            >
+                                Redundancia 24/7
+                            </div>
+                            <div
+                                class="px-6 py-3 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white font-bold"
+                            >
+                                Baja Latencia
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="py-24 text-center">
+            <div class="container mx-auto px-6">
+                <h2
+                    class="text-4xl md:text-5xl font-black text-text-main mb-8 tracking-tight"
+                >
+                    ¿Listo para vivir la experiencia Reitcom?
+                </h2>
+                <a
+                    href="/Planes"
+                    class="inline-flex items-center justify-center px-10 py-5 text-lg font-bold text-white bg-primary rounded-full hover:bg-primary-dark transition-colors shadow-lg shadow-primary/30 hover:scale-105 transform duration-300"
+                >
+                    Ver Planes Disponibles
+                </a>
+            </div>
+        </section>
+    </main>
+</Layout>
