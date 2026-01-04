@@ -1,0 +1,154 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Button from "../../components/ui/Button.astro";
+import PlanRecommender from "../../components/PlanRecommender";
+import StickyCTA from "../../components/StickyCTA.astro";
+import PlanComparison from "../../components/PlanComparison.astro";
+
+const plans = [
+    {
+        name: "PYME Start",
+        speed: "100",
+        price: "40.00",
+        features: [
+            "Fibra Óptica Dedicada",
+            "Soporte Prioritario 24/7",
+            "IP Pública Fija",
+            "SLA Garantizado 99.9%",
+        ],
+        recommended: false,
+    },
+    {
+        name: "PYME Pro",
+        speed: "300",
+        price: "70.00",
+        features: [
+            "Fibra Óptica Dedicada",
+            "Soporte Prioritario 24/7",
+            "IP Pública Fija",
+            "Reus de 1:1",
+            "Monitorización Proactiva",
+        ],
+        recommended: true,
+    },
+    {
+        name: "Corporate Ultra",
+        speed: "600",
+        price: "120.00",
+        features: [
+            "Fibra Óptica Dedicada",
+            "Soporte VIP 24/7",
+            "Multiples IPs Fijas",
+            "Reus de 1:1",
+            "Enlace de Respaldo 4G",
+        ],
+        recommended: false,
+    },
+];
+---
+
+<Layout title="Planes Empresariales - Reitcom">
+    <main class="pt-32 pb-32 container mx-auto px-6 max-w-[1400px]">
+        <div class="text-center mb-24">
+            <h1
+                class="text-5xl md:text-7xl font-black text-text-main mb-8 tracking-tight"
+            >
+                Planes <span class="text-gradient">Empresariales / PYME</span>
+            </h1>
+            <p
+                class="text-xl text-text-secondary max-w-2xl mx-auto leading-relaxed"
+            >
+                Soluciones de conectividad robusta para tu negocio. Velocidad
+                garantizada y soporte prioritario.
+            </p>
+        </div>
+
+        <!-- Recommender -->
+        <div class="mb-24">
+            <PlanRecommender client:visible mode="business" />
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+            {
+                plans.map((plan) => (
+                    <div
+                        class={`relative rounded-[2.5rem] p-10 transition-all duration-500 hover:-translate-y-2 flex flex-col ${plan.recommended ? "bg-surface shadow-2xl shadow-primary/10 border border-primary/20 scale-105 z-10" : "bg-surface/50 border border-transparent hover:bg-surface hover:shadow-xl"}`}
+                    >
+                        {plan.recommended && (
+                            <div class="absolute -top-5 left-1/2 -translate-x-1/2 bg-primary text-white px-6 py-2 rounded-full text-sm font-bold shadow-lg shadow-primary/30 tracking-wide">
+                                Más Popular
+                            </div>
+                        )}
+
+                        <h3 class="text-2xl font-bold text-text-secondary mb-6">
+                            {plan.name}
+                        </h3>
+                        <div class="flex items-baseline mb-8">
+                            <span class="text-6xl font-black text-text-main tracking-tighter">
+                                {plan.speed}
+                            </span>
+                            <span class="text-2xl font-bold text-text-secondary ml-2">
+                                Mbps
+                            </span>
+                        </div>
+
+                        <div class="mb-10">
+                            <span class="text-5xl font-bold text-primary tracking-tight">
+                                ${plan.price}
+                            </span>
+                            <span class="text-text-secondary font-medium">
+                                /mes
+                            </span>
+                            <p class="text-sm text-text-secondary mt-3 font-medium opacity-70">
+                                + Impuestos
+                            </p>
+                        </div>
+
+                        <ul class="space-y-5 mb-10 flex-grow">
+                            {plan.features.map((feature) => (
+                                <li class="flex items-center text-text-main font-medium">
+                                    <div class="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center text-primary mr-4 shrink-0">
+                                        <svg
+                                            class="w-3.5 h-3.5"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            viewBox="0 0 24 24"
+                                        >
+                                            <path
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                                stroke-width="3"
+                                                d="M5 13l4 4L19 7"
+                                            />
+                                        </svg>
+                                    </div>
+                                    {feature}
+                                </li>
+                            ))}
+                        </ul>
+
+                        <Button
+                            href="/contacto"
+                            variant={plan.recommended ? "primary" : "outline"}
+                            class="w-full"
+                            size="lg"
+                        >
+                            Contratar Ahora
+                        </Button>
+                    </div>
+                ))
+            }
+        </div>
+
+        <!-- Comparison Table -->
+        <div class="mt-32">
+            <h2
+                class="text-4xl font-black text-text-main mb-16 text-center tracking-tight"
+            >
+                Comparativa Detallada
+            </h2>
+            <PlanComparison />
+        </div>
+    </main>
+    <StickyCTA />
+</Layout>
