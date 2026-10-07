@@ -6,8 +6,7 @@
     "start:ide": "bun install && bun run dev",
     "dev": "astro dev",
     "build": "astro check && astro build",
-    "preview": "astro preview",
-    "test": "playwright test"
+    "preview": "astro preview"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.6",
@@ -29,7 +28,6 @@
     "typescript": "^5.3.3"
   },
   "devDependencies": {
-    "@playwright/test": "^1.64.0",
     "tailwindcss-animated": "^1.0.1"
   }
 }
